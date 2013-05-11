@@ -1,0 +1,1 @@
+Silahkan diaktifkan dulu yaa {{ $message->url }}.

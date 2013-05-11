@@ -1,10 +1,13 @@
 {
 	"require": {
-		"laravel/framework": "4.0.*"
+		"laravel/framework": "4.0.*",
+		"cartalyst/sentry": "2.0.*"
 	},
 	"require-dev": {
-		"way/generators": "dev-master"
-	}
+		"phpunit/phpunit": "3.7.19",
+		"leafo/lessphp": "0.3.*@dev",
+		"way/generators": "1.0.*@dev"
+	},
 	"autoload": {
 		"classmap": [
 			"app/commands",
@@ -16,7 +19,18 @@
 		]
 	},
 	"scripts": {
-		"post-update-cmd": "php artisan optimize"
+		"pre-update-cmd": [
+			"php artisan clear-compiled"
+		],
+		"post-install-cmd": [
+			"php artisan optimize"
+		],
+		"post-update-cmd": [
+			"php artisan optimize"
+		]
+	},
+	"config": {
+		"preferred-install": "dist"
 	},
 	"minimum-stability": "dev"
 }
